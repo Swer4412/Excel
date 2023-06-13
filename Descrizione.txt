@@ -1,0 +1,15 @@
+Macro su excel:
+Estrai_Dati: Estrai dati e mettili nel foglio nuovo
+Aggiorna_Dati: Ordina i dati in modo che matchino quelli sul foglio noleggi
+
+Intero procedimento
+1 Estrarre dati da una cartella salvata su outlook (Far chiedere all'utente la cartella da cui prendere i dati
+1.1 Dati da estrarre:
+_Data mail
+_Modello stampante
+_Numero di copie e stampe bianco e nero
+_Numero di copie e stampe full color
+|2 Creare un foglio nuovo ma nello stesso file 
+3 Far scrivere tali dati in modo ordinato
+
+
