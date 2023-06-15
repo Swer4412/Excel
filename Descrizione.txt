@@ -4,13 +4,14 @@ Aggiorna_Dati: Ordina i dati in modo che matchino quelli sul foglio noleggi
 
 Intero procedimento
 
-|1 Creare un foglio nuovo ma nello stesso file 
+☺1 Creare un foglio nuovo ma nello stesso file 
 2 Estrarre dati da una cartella salvata su outlook (Far chiedere all'utente la cartella da cui prendere i dati)
 2.1 Dati da estrarre:
 _Data mail
 _Modello stampante
 _Numero di copie e stampe bianco e nero
 _Numero di copie e stampe full color
-3 Scrivere i dati
+3 Scrivere i dati sul foglio nuovo
+☺4 Rimuovere email duplicate e tenere quella più recente
 
 
