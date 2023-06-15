@@ -10,8 +10,9 @@ Intero procedimento
 
 Estrai_Dati
 ☺1 Creare un foglio nuovo ma nello stesso file 
-2 Estrarre dati da una cartella salvata su outlook (Far chiedere all'utente la cartella da cui prendere i dati)
-2.1 Dati da estrarre:
+☺2 Estrarre dati da una cartella salvata su outlook (Far chiedere all'utente la cartella da cui prendere i dati)
+☺2.1 Dati da estrarre:
+_Email
 _Data mail
 _Modello stampante
 _Numero di copie e stampe bianco e nero
