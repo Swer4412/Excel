@@ -1,13 +1,14 @@
 NOTE:
-_ Prova che l'inserimento ti metta il bottone nel posto giusto
-_ La funzione aggiorna dati deve trova la posizione del pulsante cliccato 
+_ Filtra in modo che le email matchino, 
+_ Quelle che hanno la parte grigia nella riga q r
+_ Fare in modo che le mail che non sono prensenti in CONGUAGLI, non vengano prese in considerazione
+_ Fare in modo che se una mail in conguagli non ha corrispondenza con alcuna email tra quelle estratte, scriva "Nessuna mail combacia con questa email"
 
 Macro su excel:
 Estrai_Dati: Estrai dati e mettili nel foglio nuovo
 Aggiorna_Dati: Sposta i dati nell'altro foglio
 
 Intero procedimento
-
 Estrai_Dati
 ☺1 Creare un foglio nuovo ma nello stesso file 
 ☺2 Estrarre dati da una cartella salvata su outlook (Far chiedere all'utente la cartella da cui prendere i dati)
