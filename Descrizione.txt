@@ -21,7 +21,10 @@ _Numero di copie e stampe full color
 ☺3 Scrivere i dati sul foglio nuovo
 ☺4 Ordinare le email dalla più recente a quella meno recente
 ☺4.1 Rimuovere email duplicate e tenere quella più recente
-5 Ordinare le mail in modo che matchino quelle nell'altro file
+5 Usa cercaVert per:
+☺_ Trovare la riga corrispondente
+_ Lasciare uno spazio vuoto se non c'è corrispondenza 
+6 Ordinare le mail in modo che matchino quelle nell'altro file
 
 Aggiorna_Dati
 6 
