@@ -1,7 +1,4 @@
 NOTE:
-_ Filtra in modo che le email matchino, 
-_ Quelle che hanno la parte grigia nella riga q r
-_ Fare in modo che le mail che non sono prensenti in CONGUAGLI, non vengano prese in considerazione
 _ Fare in modo che se una mail in conguagli non ha corrispondenza con alcuna email tra quelle estratte, scriva "Nessuna mail combacia con questa email"
 
 Macro su excel:
@@ -21,12 +18,77 @@ _Numero di copie e stampe full color
 ☺3 Scrivere i dati sul foglio nuovo
 ☺4 Ordinare le email dalla più recente a quella meno recente
 ☺4.1 Rimuovere email duplicate e tenere quella più recente
-5 Usa cercaVert per:
-☺_ Trovare la riga corrispondente
-_ Lasciare uno spazio vuoto se non c'è corrispondenza 
-6 Ordinare le mail in modo che matchino quelle nell'altro file
+☺4.2 Trovare la riga corrispondente
+5 Lasciare uno spazio vuoto se non c'è corrispondenza 
+☺6 Ordinare le mail in modo che matchino quelle nell'altro file
 
 Aggiorna_Dati
 6 
+
+
+BACKUP
+
+Type Totals
+    totBw As Double
+    totFc As Double
+End Type
+
+Function GetTotals(OlMail As Variant) As Totals
+    Dim str As String
+    Dim bwCopier As String
+    Dim bwPrinter As String
+    Dim totBw As Long
+    Dim fcCopier As String
+    Dim fcPrinter As String
+    Dim totFc As Long
+    
+    On Error GoTo ErrorHandler
+    
+    str = Split(OlMail.Body, "Usage by Color Mode (Pages):")(1)
+            
+    bwCopier = Split(Split(str, "Black & White:", , vbTextCompare)(1), "Copier:", , vbTextCompare)(1)
+    bwCopier = Split(bwCopier, vbNewLine)(0)
+            
+    bwPrinter = Split(Split(str, "Black & White:", , vbTextCompare)(1), "Printer:", , vbTextCompare)(1)
+    bwPrinter = Split(bwPrinter, vbNewLine)(0)
+            
+    totBw = Val(bwCopier) + Val(bwPrinter)
+            
+    fcCopier = Split(Split(str, "Full Color:", , vbTextCompare)(1), "Copier:", , vbTextCompare)(1)
+    
+    On Error GoTo 0 'disabilita la gestione degli errori per evitare che l'errore venga gestito anche in caso di successo
+    
+    If Err.Number <> 0 Then 'se c'è stato un errore...
+        fcCopier = 0 'imposta il valore di fcCopier a 0
+        Err.Clear 'pulisce l'errore per evitare che interferisca con il resto del codice
+        On Error GoTo ErrorHandler 'riabilita la gestione degli errori per gestire eventuali altri errori
+    Else 'se non c'è stato un errore...
+        fcCopier = Split(fcCopier, vbNewLine)(0) 'imposta il valore di fcCopier al valore corretto
+    End If
+            
+    fcPrinter = Split(Split(str, "Full Color:", , vbTextCompare)(1), "Printer:", , vbTextCompare)(1)
+    
+    On Error GoTo 0 'disabilita la gestione degli errori per evitare che l'errore venga gestito anche in caso di successo
+    
+    If Err.Number <> 0 Then 'se c'è stato un errore...
+        fcPrinter = 0 'imposta il valore di fcPrinter a 0
+        Err.Clear 'pulisce l'errore per evitare che interferisca con il resto del codice
+        On Error GoTo ErrorHandler 'riabilita la gestione degli errori per gestire eventuali altri errori
+    Else 'se non c'è stato un errore...
+        fcPrinter = Split(fcPrinter, vbNewLine)(0) 'imposta il valore di fcPrinter al valore corretto
+    End If
+            
+    totFc = Val(fcCopier) + Val(fcPrinter)
+    
+    GetTotals.totBw = totBw
+    GetTotals.totFc = totFc
+    
+Exit Function
+
+ErrorHandler:
+    Err.Raise vbObjectError + 1000, "GetTotals", Err.Description
+End Function
+
+
 
 
