@@ -28,67 +28,26 @@ Aggiorna_Dati
 
 BACKUP
 
-Type Totals
-    totBw As Double
-    totFc As Double
-End Type
-
-Function GetTotals(OlMail As Variant) As Totals
-    Dim str As String
-    Dim bwCopier As String
-    Dim bwPrinter As String
-    Dim totBw As Long
-    Dim fcCopier As String
-    Dim fcPrinter As String
-    Dim totFc As Long
+ Ws.Cells(i, 4) = GetTotals(OlMail).totBw
+        Ws.Cells(i, 5) = GetTotals(OlMail).totFc
     
-    On Error GoTo ErrorHandler
-    
-    str = Split(OlMail.Body, "Usage by Color Mode (Pages):")(1)
+        If Err.Number <> 0 Then
+        
+            On Error Resume Next
+            Ws.Cells(i, 4) = GetBwTotals(OlMail)
+            Ws.Cells(i, 5) = 0
             
-    bwCopier = Split(Split(str, "Black & White:", , vbTextCompare)(1), "Copier:", , vbTextCompare)(1)
-    bwCopier = Split(bwCopier, vbNewLine)(0)
-            
-    bwPrinter = Split(Split(str, "Black & White:", , vbTextCompare)(1), "Printer:", , vbTextCompare)(1)
-    bwPrinter = Split(bwPrinter, vbNewLine)(0)
-            
-    totBw = Val(bwCopier) + Val(bwPrinter)
-            
-    fcCopier = Split(Split(str, "Full Color:", , vbTextCompare)(1), "Copier:", , vbTextCompare)(1)
+            If Err.Number <> 0 Then
+                Ws.Cells(i, 4) = "Formato non supportato"
+                Ws.Cells(i, 5) = ""
+                Err.Clear
+            End If
     
-    On Error GoTo 0 'disabilita la gestione degli errori per evitare che l'errore venga gestito anche in caso di successo
+        On Error GoTo 0
+                 
+            Err.Clear
+        End If
     
-    If Err.Number <> 0 Then 'se c'è stato un errore...
-        fcCopier = 0 'imposta il valore di fcCopier a 0
-        Err.Clear 'pulisce l'errore per evitare che interferisca con il resto del codice
-        On Error GoTo ErrorHandler 'riabilita la gestione degli errori per gestire eventuali altri errori
-    Else 'se non c'è stato un errore...
-        fcCopier = Split(fcCopier, vbNewLine)(0) 'imposta il valore di fcCopier al valore corretto
-    End If
-            
-    fcPrinter = Split(Split(str, "Full Color:", , vbTextCompare)(1), "Printer:", , vbTextCompare)(1)
-    
-    On Error GoTo 0 'disabilita la gestione degli errori per evitare che l'errore venga gestito anche in caso di successo
-    
-    If Err.Number <> 0 Then 'se c'è stato un errore...
-        fcPrinter = 0 'imposta il valore di fcPrinter a 0
-        Err.Clear 'pulisce l'errore per evitare che interferisca con il resto del codice
-        On Error GoTo ErrorHandler 'riabilita la gestione degli errori per gestire eventuali altri errori
-    Else 'se non c'è stato un errore...
-        fcPrinter = Split(fcPrinter, vbNewLine)(0) 'imposta il valore di fcPrinter al valore corretto
-    End If
-            
-    totFc = Val(fcCopier) + Val(fcPrinter)
-    
-    GetTotals.totBw = totBw
-    GetTotals.totFc = totFc
-    
-Exit Function
-
-ErrorHandler:
-    Err.Raise vbObjectError + 1000, "GetTotals", Err.Description
-End Function
-
-
+        On Error GoTo 0
 
 
