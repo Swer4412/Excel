@@ -26,28 +26,19 @@ Aggiorna_Dati
 6 
 
 
-BACKUP
+☺ Prende data vecchia nella prima email tap5535imedeatsrl@e-send.it, guarda mail. Una mail a caso la prende di giugno
 
- Ws.Cells(i, 4) = GetTotals(OlMail).totBw
-        Ws.Cells(i, 5) = GetTotals(OlMail).totFc
-    
-        If Err.Number <> 0 Then
-        
-            On Error Resume Next
-            Ws.Cells(i, 4) = GetBwTotals(OlMail)
-            Ws.Cells(i, 5) = 0
-            
-            If Err.Number <> 0 Then
-                Ws.Cells(i, 4) = "Formato non supportato"
-                Ws.Cells(i, 5) = ""
-                Err.Clear
-            End If
-    
-        On Error GoTo 0
-                 
-            Err.Clear
-        End If
-    
-        On Error GoTo 0
+☺ Esce riga corrispondete x (spostate email nella riga b)
 
+☺ Estrare seriale (no modello),
+Estrarre % toner, nero, cyano, magenta, giallo
+Toner sotto il 10% casella rossa
 
+1 toner bianco e nero
+3 toner colorati
+
+Ultima estrazione su casella, non bottone
+
+Vuoi sovrascrivere o no?
+☺ Nome del foglio con la data (Dati stampanti 15/09)
+Vuoi cancellare tutto? No? Creo un foglio nuovo
