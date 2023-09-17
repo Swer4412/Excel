@@ -1,5 +1,5 @@
 NOTE:
-_ Fare in modo che se una mail in conguagli non ha corrispondenza con alcuna email tra quelle estratte, scriva "Nessuna mail combacia con questa email"
+Fai in modo che il aggiugi spazi sposti tutte le mail con riga X sotto alla 62esima riga (trova numero ultima riga)
 
 Macro su excel:
 Estrai_Dati: Estrai dati e mettili nel foglio nuovo
