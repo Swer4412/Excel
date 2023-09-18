@@ -31,14 +31,10 @@ Aggiorna_Dati
 ☺ Esce riga corrispondete x (spostate email nella riga b)
 
 ☺ Estrare seriale (no modello),
-Estrarre % toner, nero, cyano, magenta, giallo
+☺Estrarre % toner, nero, cyano, magenta, giallo
 Toner sotto il 10% casella rossa
-
-1 toner bianco e nero
-3 toner colorati
 
 ☺ Ultima estrazione su casella, non bottone → sul nome del foglio
 
-Vuoi sovrascrivere o no?
 ☺ Nome del foglio con la data (Dati stampanti 15/09)
-Vuoi cancellare tutto? No? Creo un foglio nuovo
+
