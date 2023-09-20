@@ -38,3 +38,6 @@ Toner sotto il 10% casella rossa
 
 ☺ Nome del foglio con la data (Dati stampanti 15/09)
 
+COSE BELLE DA AGGIUNGERE
+Una volta finito il programma scrivere una msgbox con "FINITO! n mail elaborate in n secondi"
+
